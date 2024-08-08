@@ -295,4 +295,4 @@ workflows:
           filters:
             branches:
               only:
-                - main
+                - release/2.9.x
