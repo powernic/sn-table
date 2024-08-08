@@ -5,3 +5,5 @@ dist/
 *.html
 sn-table-ext
 test-report
+CHANGELOG.md
+api-specifications/properties.json
