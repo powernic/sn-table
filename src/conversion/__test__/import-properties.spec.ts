@@ -1,5 +1,5 @@
 import { ColumnWidthType } from "@qlik/nebula-table-utils/lib/constants";
-import { Align, ExportFormat } from "../../types";
+import type { Align, ExportFormat } from "../../types";
 import importProperties, { getColumnInfo, getMultiColumnInfo } from "../import-properties";
 
 describe("importProperties", () => {
@@ -11,7 +11,7 @@ describe("importProperties", () => {
           align: "left" as Align,
         },
         columnWidth: {
-          type: "auto" as ColumnWidthType,
+          type: ColumnWidthType.Auto,
           pixels: 200,
           percentage: 20,
         },
@@ -28,7 +28,7 @@ describe("importProperties", () => {
           align: "left" as Align,
         },
         columnWidth: {
-          type: "auto" as ColumnWidthType,
+          type: ColumnWidthType.Auto,
           pixels: 200,
           percentage: 20,
         },
@@ -43,7 +43,7 @@ describe("importProperties", () => {
           align: "left" as Align,
         },
         columnWidth: {
-          type: "FitToContent" as ColumnWidthType,
+          type: ColumnWidthType.FitToContent,
           pixels: 200,
           percentage: 20,
         },
@@ -101,28 +101,34 @@ describe("importProperties", () => {
       expect(measures).toEqual(qMeasures);
     });
 
-    it("should get correct dimensions and measures when no qColumnOrder provided", () => {
+    it("should get correct columnWidth values when no qColumnOrder provided", () => {
       const qColumnOrder = [] as number[];
       const columnWidths = [400, -1, 300];
 
       const { dimensions, measures } = getMultiColumnInfo(qDimensions, qMeasures, qColumnOrder, columnWidths);
       expect(dimensions[0].qDef.columnWidth).toEqual({ pixels: 400, type: "pixels" });
-      expect(measures[0].qDef.columnWidth).toEqual({
-        type: "fitToContent",
-      });
+      expect(measures[0].qDef.columnWidth).toEqual({ type: "fitToContent" });
       expect(measures[1].qDef.columnWidth).toEqual({ pixels: 300, type: "pixels" });
     });
 
-    it("should get correct dimensions and measures", () => {
+    it("should get correct columnWidth values when qColumnOrder is provided", () => {
       const qColumnOrder = [2, 0, 1];
       const columnWidths = [400, -1, 300];
 
       const { dimensions, measures } = getMultiColumnInfo(qDimensions, qMeasures, qColumnOrder, columnWidths);
       expect(dimensions[0].qDef.columnWidth).toEqual({ pixels: 400, type: "pixels" });
       expect(measures[0].qDef.columnWidth).toEqual({ pixels: 300, type: "pixels" });
-      expect(measures[1].qDef.columnWidth).toEqual({
-        type: "fitToContent",
-      });
+      expect(measures[1].qDef.columnWidth).toEqual({ type: "fitToContent" });
+    });
+
+    it("should get correct columnWidth values incorrect width values are provided", () => {
+      const qColumnOrder = [] as number[];
+      const columnWidths = [null, [200], [null, null]] as unknown as number[];
+
+      const { dimensions, measures } = getMultiColumnInfo(qDimensions, qMeasures, qColumnOrder, columnWidths);
+      expect(dimensions[0].qDef.columnWidth).toEqual({ type: "fitToContent" });
+      expect(measures[0].qDef.columnWidth).toEqual({ type: "fitToContent" });
+      expect(measures[1].qDef.columnWidth).toEqual({ type: "fitToContent" });
     });
   });
 
