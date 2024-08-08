@@ -1,3 +1,12 @@
+## [2.9.2](https://github.com/qlik-oss/sn-table/compare/v2.9.1...v2.9.2) (2024-08-08)
+
+
+### Bug Fixes
+
+* sanity check column width properly when converting ([#1127](https://github.com/qlik-oss/sn-table/issues/1127)) ([5432c70](https://github.com/qlik-oss/sn-table/commit/5432c7011513a941ce2f173f7008eacc5230bd99))
+
+
+
 ## [2.9.1](https://github.com/qlik-oss/sn-table/compare/v2.9.0...v2.9.1) (2023-12-15)
 
 ### Bug Fixes
