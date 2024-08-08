@@ -1,3 +1,7 @@
+## [2.9.3](https://github.com/qlik-oss/sn-table/compare/2.9.2...2.9.3) (2024-08-08)
+
+
+
 ## [2.9.2](https://github.com/qlik-oss/sn-table/compare/v2.9.1...v2.9.2) (2024-08-08)
 
 
