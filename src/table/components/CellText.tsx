@@ -22,7 +22,7 @@ const CellText = ({ children, fontSize = "", wordBreak = false, lines = 3 }: Cel
   return wordBreak ? (
     Text
   ) : (
-    <StyledCellTextWrapper minHeight={size * LINE_HEIGHT} maxHeight={size * LINE_HEIGHT * lines}>
+    <StyledCellTextWrapper minHeight={size * LINE_HEIGHT} >
       {Text}
     </StyledCellTextWrapper>
   );
