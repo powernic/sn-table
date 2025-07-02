@@ -105,6 +105,7 @@ const FONT_SIZE_1 = 14
 const FONT_SIZE_2 = 12
 const FONT_SIZE_3 = 16
 const SIZE_1 = 25;
+const SIZE_2 = 24;
 const FONT_WEIGHT_THIN = 300
 const FONT_WEIGHT_NORMAL = 400
 const FONT_WEIGHT_BLACK = 600
@@ -199,9 +200,47 @@ export function createV5ThemeOptions(): ThemeOptions {
       background: {paper: COLORS.WHITE, default: COLORS.GREYSCALE_95},
       divider: COLORS.GREYSCALE_0_15
     },
+    breakpoints: {keys: ["xs", "sm", "md", "lg", "xl"], values: {xs: 0, sm: 600, md: 960, lg: 1280, xl: 1920}},
+    spacing: 8,
+    shadows: ["none", "0px 1px 2px 0px rgba(0,0,0,0.15)", "0px 1px 2px 0px rgba(0,0,0,0.15)", "0px 1px 2px 0px rgba(0,0,0,0.15)", "0px 1px 2px 0px rgba(0,0,0,0.15)", "0px 1px 2px 0px rgba(0,0,0,0.15)", "0px 1px 2px 0px rgba(0,0,0,0.15)", "0px 2px 4px 0px rgba(0,0,0,0.15)", "0px 2px 4px 0px rgba(0,0,0,0.15)", "0px 2px 4px 0px rgba(0,0,0,0.15)", "0px 2px 4px 0px rgba(0,0,0,0.15)", "0px 2px 4px 0px rgba(0,0,0,0.15)", "0px 2px 4px 0px rgba(0,0,0,0.15)", "0px 4px 10px 0px rgba(0,0,0,0.15)", "0px 4px 10px 0px rgba(0,0,0,0.15)", "0px 4px 10px 0px rgba(0,0,0,0.15)", "0px 4px 10px 0px rgba(0,0,0,0.15)", "0px 4px 10px 0px rgba(0,0,0,0.15)", "0px 4px 10px 0px rgba(0,0,0,0.15)", "0px 6px 20px 0px rgba(0,0,0,0.15)", "0px 6px 20px 0px rgba(0,0,0,0.15)", "0px 6px 20px 0px rgba(0,0,0,0.15)", "0px 6px 20px 0px rgba(0,0,0,0.15)", "0px 6px 20px 0px rgba(0,0,0,0.15)", "0px 6px 20px 0px rgba(0,0,0,0.15)"],
+    transitions: {
+      easing: {
+        easeInOut: "cubic-bezier(0.4, 0, 0.2, 1)",
+        easeOut: "cubic-bezier(0.0, 0, 0.2, 1)",
+        easeIn: "cubic-bezier(0.4, 0, 1, 1)",
+        sharp: "cubic-bezier(0.4, 0, 0.6, 1)"
+      },
+      duration: {
+        standard: 300,
+        short: 250,
+        enteringScreen: 225,
+        shorter: 200,
+        leavingScreen: 195,
+        shortest: 150,
+        complex: 375
+      }
+    },
+    shape: {borderRadius: BORDER_RADIUS},
     typography: {
+      fontSize: FONT_SIZE_1,
+      fontWeightLight: FONT_WEIGHT_THIN,
+      fontWeightRegular: FONT_WEIGHT_NORMAL,
+      fontWeightMedium: FONT_WEIGHT_BLACK,
+      fontWeightBold: FONT_WEIGHT_BOLD,
+      htmlFontSize: FONT_SIZE_1,
       fontFamily: FONT.FONT_FAMILY,
-      fontSize: 14
+      button: {fontWeight: FONT_WEIGHT_BLACK, fontSize: FONT_SIZE_1, textTransform: "none"},
+      body1: {fontSize: FONT_SIZE_3, lineHeight: "24px"},
+      body2: {fontSize: FONT_SIZE_1, lineHeight: "20px"},
+      h1: {fontSize: 32, lineHeight: "32px"},
+      h2: {fontSize: 28, lineHeight: "32px"},
+      h3: {fontSize: SIZE_2, lineHeight: "24px"},
+      h4: {fontSize: 20, lineHeight: "24px"},
+      h5: {fontSize: FONT_SIZE_3, fontWeight: FONT_WEIGHT_BLACK, lineHeight: "16px"},
+      h6: {fontSize: FONT_SIZE_1, fontWeight: FONT_WEIGHT_BLACK, lineHeight: "16px"},
+      caption: {color: COLORS.TEXT_SECONDARY},
+      subtitle1: {fontSize: FONT_SIZE_1, color: COLORS.TEXT_SECONDARY},
+      subtitle2: {fontSize: FONT_SIZE_2, color: COLORS.TEXT_SECONDARY}
     },
     components: {
       MuiAccordion: {
@@ -739,7 +778,7 @@ export function createV5ThemeOptions(): ThemeOptions {
       MuiDataGrid: {
         defaultProps: {
           className: "sprout-data-grid-pro",
-           slotProps: {toolbar: {className: "sprout-data-grid-pro-toolbar"}}
+          slotProps: {toolbar: {className: "sprout-data-grid-pro-toolbar"}}
         },
         styleOverrides: {
           root: {
@@ -771,8 +810,8 @@ export function createV5ThemeOptions(): ThemeOptions {
               "&:hover": {backgroundColor: COLORS.GREYSCALE_0_03}
             }
           },
-          menu: {"& svg.MuiSvgIcon-root": {fontSize:FONT_SIZE_3}},
-          filterIcon: {fontSize:FONT_SIZE_3},
+          menu: {"& svg.MuiSvgIcon-root": {fontSize: FONT_SIZE_3}},
+          filterIcon: {fontSize: FONT_SIZE_3},
           pinnedColumnHeaders: {backgroundColor: COLORS.GREYSCALE_98},
           pinnedColumns: {backgroundColor: COLORS.WHITE}
         }
@@ -1098,7 +1137,7 @@ export function createV5ThemeOptions(): ThemeOptions {
             }
           },
           sizeSmall: {fontSize: FONT_SIZE_2, height: 24, width: 24, padding: 7},
-          sizeLarge: {fontSize:FONT_SIZE_3, height: 40, width: 40, lineHeight: 20}
+          sizeLarge: {fontSize: FONT_SIZE_3, height: 40, width: 40, lineHeight: 20}
         }
       },
       MuiToggleButtonGroup: {

@@ -32,11 +32,13 @@ const TableTotals = () => {
         const tabIndex = atTop && columnIndex === 0 && !keyboard.enabled ? 0 : -1;
         const style = column.stylingIDs.length ? getTotalColumnStyle(styling as CellStyle, rows[0]['col-'+columnIndex].qAttrExps, column.stylingIDs) : null;
         const background = style?.background || undefined;
+        const color = style?.color || undefined;
         return (
           <StyledTotalsCell
             totalsStyle={styling.totals}
             headRowHeight={headRowHeight}
             background={background}
+            color={color}
             atTop={atTop}
             key={column.id}
             align={column.totalsTextAlign}

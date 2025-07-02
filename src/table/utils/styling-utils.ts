@@ -310,6 +310,7 @@ export function getTotalColumnStyle(
 
   return {
     background: columnColors.cellTotalBackgroundColor || styling.background,
+    color: columnColors.cellTotalColor || styling.color,
   };
 }
 /**

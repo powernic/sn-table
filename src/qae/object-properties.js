@@ -128,7 +128,7 @@ const properties = {
  * @name AttributeExpressionProperties
  * @type object
  * @extends NxAttrExprDef - expression resolving into a valid color
- * @property {('cellForegroundColor'|'cellBackgroundColor'|'cellTotalBackgroundColor')} id - specifying what the color applies to
+ * @property {('cellForegroundColor'|'cellBackgroundColor'|'cellTotalBackgroundColor'|'cellTotalColor')} id - specifying what the color applies to
  */
 
 /**

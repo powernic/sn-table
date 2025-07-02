@@ -148,6 +148,7 @@ export interface CellStyle {
 
 export interface TotalCellStyle {
   background: string | undefined;
+  color: string | undefined;
 }
 export interface HandleWrapperKeyDownProps {
   evt: React.KeyboardEvent;
