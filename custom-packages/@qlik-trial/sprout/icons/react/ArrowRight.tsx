@@ -1,0 +1,6 @@
+import React from 'react';
+export default function ArrowRight() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" height="16px" fill="currentColor" aria-hidden="true" role="img"><path d="M8.5 8 4 3.5 5.5 2l6 6-6 6L4 12.5z"></path></svg>
+  );
+}

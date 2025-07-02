@@ -1,19 +1,13 @@
-import { Palette } from "@mui/material";
-import { COLORS, createV5ThemeOptions } from "@qlik-trial/sprout/theme";
+
 import { SelectionStates } from "./constants";
 
-const palette = createV5ThemeOptions().palette as Palette;
 
 export const SELECTION_STYLING = {
   SELECTED: {
-    color: COLORS.GREYSCALE_100,
-    background: palette.primary.light,
     // Setting a specific class for selected cells styling to override hover effect
     selectedCellClass: SelectionStates.SELECTED,
   },
   POSSIBLE: {
-    color: palette.text.primary,
-    background: COLORS.GREYSCALE_100,
   },
   EXCLUDED_BACKGROUND:
     "repeating-linear-gradient(-45deg, rgba(200,200,200,0.08), rgba(200,200,200,0.08) 2px, rgba(200,200,200,0.3) 2.5px, rgba(200,200,200,0.08) 3px, rgba(200,200,200,0.08) 5px)",
@@ -23,6 +17,7 @@ export const PADDING = 4;
 export const BORDER_WIDTH = 1;
 export const LINE_HEIGHT = 4 / 3;
 export const DEFAULT_FONT_SIZE = "12px";
+export const BOLD_FONT_WEIGHT = "600";
 
 export const COMMON_CELL_STYLING = {
   height: "auto",

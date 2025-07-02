@@ -14,8 +14,8 @@ const CellText = ({ children, fontSize = "", wordBreak = false, lines = 3 }: Cel
   const size = parseInt(fontSize || DEFAULT_FONT_SIZE, 10);
 
   const Text = (
-    <StyledCellText component="span" className="sn-table-cell-text" wordBreak={wordBreak} lines={lines}>
-      {children}
+    <StyledCellText component="span" className="sn-table-cell-text" wordBreak={wordBreak} lines={lines}
+                    dangerouslySetInnerHTML={{ __html: children }}>
     </StyledCellText>
   );
 

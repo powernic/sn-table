@@ -115,7 +115,7 @@
     "@nebula.js/cli-sense": "4.9.0",
     "@nebula.js/cli-serve": "4.9.0",
     "@playwright/test": "1.40.1",
-    "@qlik-trial/sprout": "3.7.1",
+    "@qlik-trial/sprout": "file:custom-packages/@qlik-trial/sprout",
     "@qlik/eslint-config": "0.6.1",
     "@qlik/nebula-table-utils": "2.6.6",
     "@qlik/prettier-config": "0.4.4",
@@ -168,7 +168,7 @@
     "access": "public"
   },
   "qext": {
-    "name": "Straight table",
+    "name": "My Custom table",
     "icon": "table"
   },
   "systemjs": "dist/sn-table.systemjs.js"

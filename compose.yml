@@ -1,0 +1,10 @@
+name: qlik
+
+services:
+  qlik:
+    build:
+      context: .
+      target: dev
+    volumes:
+      - ./:/app/
+    container_name: qlik
