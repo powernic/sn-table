@@ -1,8 +1,6 @@
 import React from 'react';
 export default function ArrowLeft() {
   return (
-    <svg name="ArrowLeft" width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-      <rect x="2" y="2" width="12" height="12" fill="#DD1" />
-    </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" height="12px" fill="currentColor" aria-hidden="true" role="img"><path d="m7 8 4.5 4.5L10 14 4 8l6-6 1.5 1.5z"></path></svg>
   );
 }

@@ -5,7 +5,7 @@ import { COLORING, getHoverColor, isDarkColor, removeOpacity, toRGB } from "@qli
 import { ContentStyling, HeaderStyling, PaletteColor, TableLayout } from "../../types";
 import { SelectionStates } from "../constants";
 import { SELECTION_STYLING } from "../styling-defaults";
-import { CellStyle, FeatureFlags, GeneratedStyling } from "../types";
+import {CellStyle, FeatureFlags, GeneratedStyling, TotalCellStyle} from "../types";
 
 export const LINE_HEIGHT = 4 / 3;
 export const CELL_PADDING_HEIGHT = 8;
@@ -295,7 +295,23 @@ export function getColumnStyle(
     background: columnColors.cellBackgroundColor || styling.background,
   };
 }
+export function getTotalColumnStyle(
+  styling: CellStyle,
+  qAttrExps: EngineAPI.INxAttributeExpressionValues | undefined,
+  stylingIDs: string[],
+): TotalCellStyle {
+  const columnColors: Record<string, string> = {};
+  qAttrExps?.qValues?.forEach((val, i) => {
+    const resolvedColor = val.qText && toRGB(val.qText);
+    if (resolvedColor && resolvedColor !== "none") {
+      columnColors[stylingIDs[i]] = resolvedColor;
+    }
+  });
 
+  return {
+    background: columnColors.cellTotalBackgroundColor || styling.background,
+  };
+}
 /**
  * Extends the cell styling with selection styling based on whether it is
  * selected, possible, excluded or not in in selection mode (no changes)

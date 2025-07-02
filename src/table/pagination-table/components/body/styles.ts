@@ -42,11 +42,12 @@ export const StyledBodyCell = styled(TableCell, {
 
 export const StyledTotalsCell = styled(TableCell, {
   shouldForwardProp: (prop: string) => prop !== "atTop" && prop !== "headRowHeight" && prop !== "totalsStyle",
-})(({ totalsStyle, atTop, headRowHeight, theme }) => ({
+})(({ totalsStyle, atTop, headRowHeight, theme, background }) => ({
   ...COMMON_CELL_STYLING,
   ...totalsStyle,
   fontWeight: "600",
   position: "sticky",
+  backgroundColor: background,
   padding: theme.spacing(0.5, 1.5),
   borderWidth: atTop ? "0px 1px 1px 0px" : "1px 1px 1px 0px",
   top: atTop && headRowHeight,

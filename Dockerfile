@@ -6,4 +6,4 @@ WORKDIR /app
 COPY ./package*.json ./
 COPY ./pnpm-lock.yaml ./
 
-ENTRYPOINT ["tail", "-f", "/dev/null"]
+ENTRYPOINT ["npm", "run", "start"]

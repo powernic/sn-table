@@ -146,6 +146,9 @@ export interface CellStyle {
   selectedCellClass?: string;
 }
 
+export interface TotalCellStyle {
+  background: string | undefined;
+}
 export interface HandleWrapperKeyDownProps {
   evt: React.KeyboardEvent;
   totalRowCount: number;

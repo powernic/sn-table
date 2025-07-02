@@ -5,6 +5,9 @@ services:
     build:
       context: .
       target: dev
+    ports:
+      - "8000:8000"
+      - "5001:5001"
     volumes:
       - ./:/app/
     container_name: qlik

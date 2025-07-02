@@ -6,7 +6,8 @@ import { TableContext, useContextSelector } from "../../../context";
 import { removeTabAndFocusCell } from "../../../utils/accessibility-utils";
 import { handleTotalKeyDown } from "../../../utils/handle-keyboard";
 import { StyledTotalsCell } from "./styles";
-
+import {CellStyle} from "../../../../table/types";
+import {getColumnStyle, getTotalColumnStyle} from "../../../utils/styling-utils";
 const TableTotals = () => {
   const {
     columns,
@@ -29,11 +30,13 @@ const TableTotals = () => {
       {columns.map((column, columnIndex) => {
         const cellCoord: [number, number] = [atTop ? 1 : rows.length + 1, columnIndex];
         const tabIndex = atTop && columnIndex === 0 && !keyboard.enabled ? 0 : -1;
-
+        const style = column.stylingIDs.length ? getTotalColumnStyle(styling as CellStyle, rows[0]['col-'+columnIndex].qAttrExps, column.stylingIDs) : null;
+        const background = style?.background || undefined;
         return (
           <StyledTotalsCell
             totalsStyle={styling.totals}
             headRowHeight={headRowHeight}
+            background={background}
             atTop={atTop}
             key={column.id}
             align={column.totalsTextAlign}

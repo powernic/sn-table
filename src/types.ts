@@ -55,7 +55,7 @@ interface InlineMeasureDef extends EngineAPI.INxInlineMeasureDef {
   columnWidth: ColumnWidth;
 }
 interface AttributeExpressionProperties extends EngineAPI.INxAttrExprDef {
-  id: "cellForegroundColor" | "cellBackgroundColor";
+  id: "cellForegroundColor" | "cellBackgroundColor" | "cellTotalBackgroundColor";
 }
 export interface DimensionProperties extends Omit<EngineAPI.INxDimension, "qDef" | "qAttributeExpressions"> {
   qDef: InlineDimensionDef;
@@ -124,6 +124,7 @@ export interface TableLayout extends Omit<EngineAPI.IGenericHyperCubeLayout, "qH
     show: boolean;
     position: "top" | "bottom" | "noTotals";
     label: string;
+    backgroundColor?: string;
   };
   usePagination?: boolean;
   components?: Component[];
