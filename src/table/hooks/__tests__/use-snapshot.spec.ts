@@ -24,7 +24,7 @@ describe("use-snapshot", () => {
         visibleWidth: 10,
         scrollTopRatio: 1,
         page: 0,
-        rowsPerPage: 100,
+        rowsPerPage: 25,
         qTop: 0,
         qHeight: 100,
         estimatedRowHeight: 25,

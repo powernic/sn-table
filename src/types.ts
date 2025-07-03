@@ -128,6 +128,7 @@ export interface TableLayout extends Omit<EngineAPI.IGenericHyperCubeLayout, "qH
   };
   usePagination?: boolean;
   components?: Component[];
+  rowHeight?: number;
   snapshotData?: SnapshotData;
 }
 export interface Point {

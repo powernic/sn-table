@@ -14,6 +14,7 @@ declare module "object-properties" {
       position?: "top" | "bottom" | "noTotals";
       label?: string;
     };
+    rowHeight: number;
     components?: Component[];
   };
 }

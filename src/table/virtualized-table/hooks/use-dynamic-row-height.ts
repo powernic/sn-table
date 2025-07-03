@@ -1,7 +1,7 @@
 import { useMeasureText, useOnPropsChange } from "@qlik/nebula-table-utils/lib/hooks";
 import { useCallback, useRef, useState } from "react";
 import { VariableSizeGrid, VariableSizeList } from "react-window";
-import { Column, PageInfo, Row, ViewService } from "../../../types";
+import {Column, PageInfo, Row, TableLayout, ViewService} from "../../../types";
 import { TableContext, useContextSelector } from "../../context";
 import { COMMON_CELL_STYLING } from "../../styling-defaults";
 import { GeneratedStyling } from "../../types";
@@ -21,6 +21,7 @@ export interface UseDynamicRowHeightProps {
   rowCount: number;
   columnWidths: number[];
   pageInfo: PageInfo;
+  layout?: TableLayout;
   gridRef?: React.RefObject<VariableSizeGrid<any>>;
   lineRef?: React.RefObject<VariableSizeList<any>>;
   columns?: Column[];
@@ -46,6 +47,7 @@ const useDynamicRowHeight = ({
   gridState,
   isSnapshot,
   viewService,
+  layout,
   maxNbrLines = MAX_NBR_LINES_OF_TEXT,
 }: UseDynamicRowHeightProps) => {
   const rowMeta = useRef<RowMeta>({
@@ -60,7 +62,6 @@ const useDynamicRowHeight = ({
   const [estimatedRowHeight, setEstimatedRowHeight] = useState(rowHeight || MIN_BODY_ROW_HEIGHT);
   const { measureText, estimateLineCount } = useMeasureText({ ...style, bold: boldText });
   const lineHeight = parseInt(style.fontSize ?? COMMON_CELL_STYLING.fontSize, 10) * LINE_HEIGHT_MULTIPLIER;
-
   // Find a reasonable max line count to avoid issue where the react-window container DOM element gets too big
   const maxCellHeightExcludingPadding = MAX_ELEMENT_DOM_SIZE / rowCount - CELL_PADDING_HEIGHT - CELL_BORDER_HEIGHT;
   const maxLineCount = Math.max(0, Math.min(maxNbrLines, Math.round(maxCellHeightExcludingPadding / lineHeight)));
@@ -76,7 +77,7 @@ const useDynamicRowHeight = ({
       );
       const textHeight = Math.max(1, estimatedLineCount) * lineHeight;
 
-      return textHeight + CELL_PADDING_HEIGHT + CELL_BORDER_HEIGHT;
+      return layout.rowHeight > 0 ? layout.rowHeight : textHeight + CELL_PADDING_HEIGHT + CELL_BORDER_HEIGHT;
     },
     [columnWidths, lineHeight, maxLineCount, columns, estimateLineCount],
   );

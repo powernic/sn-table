@@ -79,6 +79,12 @@ const properties = {
    * @type {boolean=}
    */
   usePagination: false,
+
+  /**
+   * Set fix row height
+   * @type {number=}
+   */
+  rowHeight: 0,
   /**
    * Holds general styling
    * @type {?Component[]}

@@ -39,7 +39,7 @@ interface UsePaginationTable {
 export const initialPageInfo = {
   page: 0,
   rowsPerPage: 100,
-  rowsPerPageOptions: [10, 25, 100],
+  rowsPerPageOptions: [10, 25, 100, 200, 500, 750, 1000, 10000, 100000, 500000],
 };
 
 const usePaginationTable = ({

@@ -235,7 +235,7 @@ export default async function manageData(
     return null;
   }
 
-  const paginationNeeded = totalRowCount > 10; // TODO: This might not be true if you have > 1000 columns
+  const paginationNeeded = totalRowCount > 10;
   const totalsPosition = getTotalPosition(layout, viewService);
   const columns = getColumns(layout);
 

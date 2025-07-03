@@ -261,7 +261,13 @@ const getUsePagination = () => ({
   component: "checkbox",
   defaultValue: false,
 });
-
+const getTableSize = () => ({
+  ref: "rowHeight",
+  translation: "Высота строки",
+  type: "number",
+  expression: "optional",
+  defaultValue: 0,
+});
 const getSettings = (env) => ({
   uses: "settings",
   items: {
@@ -269,7 +275,7 @@ const getSettings = (env) => ({
       grouped: true,
       type: "items",
       translation: "properties.presentation",
-      items: [stylingPanel, getTotals(env), getUsePagination()],
+      items: [stylingPanel, getTotals(env), getUsePagination(), getTableSize()],
     },
     ...getChartExploration(env),
   },
